@@ -1,6 +1,6 @@
 # GitHub Repo Explorer
 
-A React application that allows users to search for GitHub users and view their repositories.
+A React application that allows users to search for GitHub users and view their repositories. App is hosted and available at https://demo.arvian.to.
 
 ## Key Features
 
