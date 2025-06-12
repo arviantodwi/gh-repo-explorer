@@ -1,87 +1,75 @@
-# Welcome to React Router!
+# GitHub Repo Explorer
 
-A modern, production-ready template for building full-stack React applications using React Router.
+A React application that allows users to search for GitHub users and view their repositories.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/remix-run/react-router-templates/tree/main/default)
+## Key Features
 
-## Features
+- **Search for GitHub users:** Enter a username to find and display user information.
+- **View user repositories:** Browse a list of repositories for a selected user.
+- **Responsive design:** Works well on different screen sizes.
 
-- 🚀 Server-side rendering
-- ⚡️ Hot Module Replacement (HMR)
-- 📦 Asset bundling and optimization
-- 🔄 Data loading and mutations
-- 🔒 TypeScript by default
-- 🎉 TailwindCSS for styling
-- 📖 [React Router docs](https://reactrouter.com/)
+## Technologies Used
 
-## Getting Started
+- [React](https://reactjs.org/): A JavaScript library for building user interfaces.
+- [React Router](https://reactrouter.com/): A standard library for routing in React.
+- [Vite](https://vitejs.dev/): A build tool that aims to provide a faster and leaner development experience for modern web projects.
+- [Zustand](https://github.com/pmndrs/zustand): A small, fast and scalable bearbones state-management solution.
+- [GitHub API](https://docs.github.com/en/rest): Used to fetch user and repository data.
 
-### Installation
+## Key Components
 
-Install the dependencies:
+- `SearchHeader`: Provides a search input for finding GitHub users.
+- `UserList`: Displays a list of GitHub users based on search results.
+- `UserCard`: Renders a summary of a GitHub user's information.
+- `RepoList`: Displays a list of repositories for a given user.
+- `RepoCard`: Renders a summary of a GitHub repository's information.
 
-```bash
-npm install
-```
+## Prerequisites
 
-### Development
+- [Node.js](https://nodejs.org/) (>=18.0.0)
+- [npm](https://www.npmjs.com/)
 
-Start the development server with HMR:
+## Installation
 
-```bash
-npm run dev
-```
+1.  Clone the repository:
 
-Your application will be available at `http://localhost:5173`.
+    ```bash
+    git clone https://github.com/arviantodwi/gh-repo-explorer.git
+    ```
 
-## Building for Production
+2.  Navigate to the project directory:
 
-Create a production build:
+    ```bash
+    cd gh-repo-explorer
+    ```
 
-```bash
-npm run build
-```
+3.  Install dependencies using npm, yarn, or pnpm:
 
-## Deployment
+    ```bash
+    npm install
+    ```
 
-### Docker Deployment
+## Running the Project
 
-To build and run using Docker:
+1.  Start the development server using npm:
 
-```bash
-docker build -t my-app .
+    ```bash
+    npm run dev
+    ```
 
-# Run the container
-docker run -p 3000:3000 my-app
-```
+2.  Open your browser and navigate to `http://localhost:5173` (or the port specified by Vite).
 
-The containerized application can be deployed to any platform that supports Docker, including:
+## Running Tests
 
-- AWS ECS
-- Google Cloud Run
-- Azure Container Apps
-- Digital Ocean App Platform
-- Fly.io
-- Railway
+1.  Run the tests using npm, yarn, or pnpm:
 
-### DIY Deployment
+    ```bash
+    npm run test
+    ```
 
-If you're familiar with deploying Node applications, the built-in app server is production-ready.
+## Additional Information
 
-Make sure to deploy the output of `npm run build`
-
-```
-├── package.json
-├── package-lock.json (or pnpm-lock.yaml, or bun.lockb)
-├── build/
-│   ├── client/    # Static assets
-│   └── server/    # Server-side code
-```
-
-## Styling
-
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever CSS framework you prefer.
-
----
-
-Built with ❤️ using React Router.
+- The project uses Zustand for state management. The store is located in [`app/lib/store.ts`](app/lib/store.ts).
+- The project uses the GitHub API to fetch data. The API calls are located in [`app/lib/api.ts`](app/lib/api.ts).
+- The project uses Vite as a build tool. The configuration file is located in [`vite.config.ts`](vite.config.ts).
+- The project uses Vitest and React Testing Library to enable the test functionalities. The configuration file is located in [`vitest.setup.ts`](vitest.setup.ts).
