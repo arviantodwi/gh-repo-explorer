@@ -30,15 +30,6 @@ export const UserCard: FC<UserCardProps> = ({ isSelected, user, onClick }) => {
         <div className="min-w-0 flex-1">
           <div className="mb-1 flex items-center gap-2">
             <h4 className="truncate font-semibold text-slate-800">{user.name || user.login}</h4>
-            <a
-              href={user.html_url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-slate-400 transition-colors hover:text-slate-600"
-              onClick={(e) => e.stopPropagation()}
-            >
-              {/* <ExternalLink className="h-4 w-4" /> */}
-            </a>
           </div>
 
           <p className="mb-2 text-sm text-slate-600">@{user.login}</p>

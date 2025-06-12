@@ -19,7 +19,7 @@ export const UserList: FC = () => {
       try {
         await selectUserAndLoadRepos(user);
       } catch (error) {
-        //
+        // @TODO Implement toast for error handling
       }
     },
     [selectUserAndLoadRepos, selectedUser?.id],

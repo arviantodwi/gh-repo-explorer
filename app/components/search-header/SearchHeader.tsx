@@ -13,7 +13,7 @@ export const SearchHeader: FC = () => {
       try {
         await searchUsers(searchQuery);
       } catch (error) {
-        //
+        // @TODO Implement toast for error handling
       }
     },
     [searchQuery, searchUsers],
