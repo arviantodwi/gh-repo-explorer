@@ -1,12 +1,35 @@
-import type { FC } from 'react';
-import { Card, CardContent } from '../ui/Card';
+import { useCallback, useEffect, type FC } from 'react';
 import { IoPeopleCircleOutline } from 'react-icons/io5';
+import { useGitHubStore } from '~/lib/store';
+import type { GitHubUser } from '~/lib/types';
+import { Card, CardContent } from '../ui/Card';
 import { Skeleton } from '../ui/Skeleton';
+import { UserCard } from './UserCard';
 
 export const UserList: FC = () => {
-  const searchQuery = true;
-  const isSearching = false;
-  const users: unknown[] = [];
+  const { isSearching, searchQuery, users, selectedUser, clearAll, selectUserAndLoadRepos } =
+    useGitHubStore();
+
+  const handleUserClick = useCallback(
+    async (user: GitHubUser) => {
+      if (selectedUser?.id === user.id) {
+        return;
+      }
+
+      try {
+        await selectUserAndLoadRepos(user);
+      } catch (error) {
+        //
+      }
+    },
+    [selectUserAndLoadRepos, selectedUser?.id],
+  );
+
+  useEffect(() => {
+    if (!searchQuery && users.length) {
+      clearAll();
+    }
+  }, [clearAll, searchQuery, users.length]);
 
   if (!searchQuery) {
     return (
@@ -59,7 +82,12 @@ export const UserList: FC = () => {
         </h3>
         <div className="space-y-3">
           {users.map((user) => (
-            <></>
+            <UserCard
+              key={user.id}
+              user={user}
+              isSelected={selectedUser?.id === user.id}
+              onClick={() => handleUserClick(user)}
+            />
           ))}
         </div>
       </CardContent>

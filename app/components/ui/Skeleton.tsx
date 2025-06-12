@@ -1,5 +1,6 @@
+import type { FC } from 'react';
 import { cx } from '../../lib/utils';
 
-export function Skeleton({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) {
-  return <div className={cx('bg-slate-300 animate-pulse rounded-md', className)} {...props} />;
-}
+export const Skeleton: FC<React.HTMLAttributes<HTMLDivElement>> = ({ className, ...props }) => {
+  return <div className={cx('animate-pulse rounded-md bg-slate-300', className)} {...props} />;
+};
