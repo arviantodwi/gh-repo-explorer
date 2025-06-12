@@ -23,7 +23,7 @@ export const UserCard: FC<UserCardProps> = ({ isSelected, user, onClick }) => {
       onClick={onClick}
     >
       <div className="flex items-center gap-x-4">
-        <Avatar src={user.avatar_url} size={64}>
+        <Avatar src={user.avatar_url} size={64} alt={user.login}>
           {user.login.substring(0, 2).toUpperCase()}
         </Avatar>
 
